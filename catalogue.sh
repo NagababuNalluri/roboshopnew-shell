@@ -21,7 +21,7 @@ cd /app
 
 npm install
 
-cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service
+cp /home/centos/roboshopnew-shell/files/catalogue.service /etc/systemd/system/catalogue.service
 
 systemctl daemon-reload
 
