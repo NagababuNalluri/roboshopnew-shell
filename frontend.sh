@@ -1,5 +1,6 @@
 script_location=$(pwd)
 
+echo -e '\e[31m install nginx\e[0m'
 yum install nginx -y
 
 systemctl enable nginx
