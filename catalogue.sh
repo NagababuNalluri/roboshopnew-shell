@@ -31,7 +31,7 @@ systemctl start catalogue
 
 cp ${script_location}/fiels/mongodb.conf /etc/yum.repos.d/mongo.repo
 
-yum install mongo-org -y
+yum install mongo-org-shell -y
 
 mongo --host localhost </app/schema/catalogue.js
 
