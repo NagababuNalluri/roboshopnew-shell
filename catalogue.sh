@@ -33,6 +33,6 @@ cp ${script_location}/fiels/mongodb.conf /etc/yum.repos.d/mongo.repo
 
 yum install mongo-org-shell -y
 
-mongo --host localhost </app/schema/catalogue.js
+mongo --host mongodb-dev.devopshemasri.online </app/schema/catalogue.js
 
 
