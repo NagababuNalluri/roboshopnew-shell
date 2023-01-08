@@ -1,7 +1,7 @@
 script_location=$(pwd)
 
 echo -e '\e[32m Setting mongodb repo\e[0m'
-cp "$script_location"/files/mongodb.conf /etc/yum.repos.d/mongodb.repo
+cp "$script_location"/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
 
 echo -e '\e[32m Installed mongodb\e[0m'
 yum install mongodb-org -y
