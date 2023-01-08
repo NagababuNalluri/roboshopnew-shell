@@ -29,5 +29,10 @@ systemctl enable catalogue
 
 systemctl start catalogue
 
+cp ${script_location}/fiels/mongodb.conf /etc/yum.repos.d/mongo.repo
+
+yum install mongo-org -y
+
+mongo --host localhost </app/schema/catalogue.js
 
 
