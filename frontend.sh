@@ -1,32 +1,29 @@
 source common.sh
 
-echo -e '\e[32m install nginx\e[0m'
+print_head 'install nginx'
 yum install nginx -y &>>${log}
-
 check_status
-
-echo -e '\e[32m enable nginx\e[0m'
+print_head 'enable nginx'
 systemctl enable nginx &>>${log}
 check_status
-
-echo -e '\e[32m start nginx\e[0m'
+print_head 'start nginx'
 systemctl start nginx &>>${log}
 check_status
-echo -e '\e[32m Remove default content\e[0m'
+print_head 'Remove default content'
 rm -rf /usr/share/nginx/html/* &>>${log}
 check_status
-echo -e '\e[32m download frontend content\e[0m'
+print_head 'download frontend content'
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${log}
 check_status
-echo -e '\e[32m Changing directory \e[0m'
+print_head 'Changing directory '
 cd /usr/share/nginx/html &>>${log}
 check_status
-echo -e '\e[32m Unzipping the frontend content\e[0m'
+print_head 'Unzipping the frontend content'
 unzip /tmp/frontend.zip &>>${log}
 check_status
-echo -e '\e[32m Coping reverse proxy conf \e[0m'
+print_head 'Coping reverse proxy conf '
 cp $script_location/files/reverseproxy-roboshop.conf /etc/nginx/default.d/roboshohp.conf &>>${log}
 check_status
-echo -e '\e[32m restarting nginx\e[0m'
+print_head 'restarting nginx'
 systemctl restart nginx &>>${log}
 check_status
