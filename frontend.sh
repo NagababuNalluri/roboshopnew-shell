@@ -25,7 +25,7 @@ check_status
 echo -e '\e[32m start nginx\e[0m'
 systemctl start nginx &>>${log}
 check_status
-echo -e '\e[32m install nginx\e[0m'
+echo -e '\e[32m Remove default content\e[0m'
 rm -rf /usr/share/nginx/html/* &>>${log}
 check_status
 echo -e '\e[32m download frontend content\e[0m'
