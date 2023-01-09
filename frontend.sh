@@ -4,7 +4,7 @@ echo -e '\e[32m install nginx\e[0m'
 yum install nginx -y &>>${log}
 if [ $? -eq 0 ]
 then
-  echo '\e[35m success \e[0m'
+  echo -e '\e[35m success \e[0m'
   fi
 
 echo -e '\e[32m enable nginx\e[0m'
