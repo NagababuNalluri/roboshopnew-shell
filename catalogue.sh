@@ -24,13 +24,7 @@ then
 else
   useradd roboshop
 fi
-useradd roboshop &>>log
-if [ $? -eq 0 ]
-then
-  echo -e '\e[35m Add roboshop user success \e[0m'
-else
-  echo -e '\e[35m Add roboshop user Fail \e[0m'
-fi
+
 echo -e '\e[32m Creating app directory\e[0m'
 mkdir -p /app &>>log
 if [ $? -eq 0 ]
