@@ -7,6 +7,8 @@ then
   echo -e '\e[32m success\e[0m'
   else
     echo -e '\e[31m Fail\e[0m'
+    echo 'Refer log files for more info log-${log}'
+    exit
     fi
     }
 
