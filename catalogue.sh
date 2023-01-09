@@ -17,6 +17,13 @@ else
   echo -e '\e[35m Install Node JS Fail \e[0m'
 fi
 echo -e '\e[32m Add roboshop user\e[0m'
+id roboshop &>>log
+if [ $? -eq 0 ]
+then
+  echo -e '\e[31m roboshop user already exists \e[0m'
+else
+  useradd roboshop
+fi
 useradd roboshop &>>log
 if [ $? -eq 0 ]
 then
