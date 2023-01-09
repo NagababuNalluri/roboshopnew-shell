@@ -31,6 +31,7 @@ check_status
 echo -e '\e[32m download frontend content\e[0m'
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${log}
 check_status
+echo -e '\e[32m Changing directory \e[0m'
 cd /usr/share/nginx/html &>>${log}
 check_status
 echo -e '\e[32m Unzipping the frontend content\e[0m'
