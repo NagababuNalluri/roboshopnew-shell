@@ -2,13 +2,17 @@ script_location=$(pwd)
 log=/tmp/roboshop.logs
 echo -e '\e[32m install nginx\e[0m'
 yum install nginx -y &>>${log}
-if [ $? -eq 0 ] ; then
+if [ $? -eq 0 ]
+then
   echo success
   fi
 
 echo -e '\e[32m enable nginx\e[0m'
 systemctl enable nginx &>>${log}
-echo $?
+if [ $? -eq 0]
+then
+  echo success
+  fi
 
 echo -e '\e[32m start nginx\e[0m'
 systemctl start nginx &>>${log}
