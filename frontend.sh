@@ -24,7 +24,7 @@ echo -e '\e[32m start nginx\e[0m'
 systemctl start nginx &>>${log}
 if [ $? -eq 0 ]
 then
-  echo -e '\e[35m success \e[0m'
+  echo -e '\e[35m Command Execution Success \e[0m'
   else
       echo -e '\e[31m Command Execution Failed \e[0m'
     fi
