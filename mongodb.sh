@@ -8,7 +8,7 @@ if [ $? -eq 0 ]
 then
   echo -e '\e[35m Command Execution Success \e[0m'
   else
-    echo -e '\e[35m Command Execution Failed \e[0m'
+    echo -e '\e[31m Command Execution Failed \e[0m'
   fi
 
 echo -e '\e[32m Installed mongodb\e[0m'
@@ -17,7 +17,7 @@ if [ $? -eq 0 ]
 then
   echo -e '\e[35m Command Execution Success \e[0m'
   else
-    echo -e '\e[35m Command Execution Failed \e[0m'
+    echo -e '\e[31m Command Execution Failed \e[0m'
   fi
 echo -e '\e[32m Enable Mongodb\e[0m'
 systemctl enable mongod &>>$log
@@ -25,7 +25,7 @@ if [ $? -eq 0 ]
 then
   echo -e '\e[35m Command Execution Success \e[0m'
   else
-    echo -e '\e[35m Command Execution Failed \e[0m'
+    echo -e '\e[31m Command Execution Failed \e[0m'
   fi
 echo -e '\e[32m Start Mongodb\e[0m'
 systemctl start mongod &>>$log
@@ -33,7 +33,7 @@ if [ $? -eq 0 ]
 then
   echo -e '\e[35m Command Execution Success \e[0m'
   else
-    echo -e '\e[35m Command Execution Failed \e[0m'
+    echo -e '\e[31m Command Execution Failed \e[0m'
   fi
 echo -e '\e[32m Change listing address to 0.0.0.0\e[0m'
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$log
@@ -41,7 +41,7 @@ if [ $? -eq 0 ]
 then
   echo -e '\e[35m Command Execution Success \e[0m'
   else
-    echo -e '\e[35m Command Execution Failed \e[0m'
+    echo -e '\e[31m Command Execution Failed \e[0m'
   fi
 echo -e '\e[32m restarting Mongodb\e[0m'
 systemctl restart mongod &>>$log
@@ -49,5 +49,5 @@ if [ $? -eq 0 ]
 then
   echo -e '\e[35m Command Execution Success \e[0m'
   else
-    echo -e '\e[35m Command Execution Failed \e[0m'
+    echo -e '\e[31m Command Execution Failed \e[0m'
   fi
