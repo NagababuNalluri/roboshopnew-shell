@@ -5,7 +5,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>log
 if [ $? -eq 0 ]
 then
   echo -e '\e[35m Conguration nodejs success \e[0m'
-esle
+else
   echo -e '\e[35m Conguration nodejs Fail \e[0m'
 fi
 echo -e '\e[32m Install Node JS\e[0m'
