@@ -2,6 +2,7 @@ script_location=$(pwd)
 log=/tmp/roboshop.logs
 echo -e '\e[32m Configuring nodejs \e[0m'
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>log
+echo $?
 echo -e '\e[32m Install Node JS\e[0m'
 yum install nodejs -y &>>log
 echo -e '\e[32m Add roboshop user\e[0m'
