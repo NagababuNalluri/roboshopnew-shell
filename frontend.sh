@@ -9,7 +9,7 @@ then
 
 echo -e '\e[32m enable nginx\e[0m'
 systemctl enable nginx &>>${log}
-if [ $? -eq 0]
+if [ $? -eq 0 ]
 then
   echo success
   fi
