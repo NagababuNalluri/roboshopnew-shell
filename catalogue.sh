@@ -5,9 +5,9 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>log
 if [ $? -eq 0 ]
 then
   echo -e '\e[35m Conguration nodejs success \e[0m'
-  esle
+esle
   echo -e '\e[35m Conguration nodejs Fail \e[0m'
-  fi 
+fi
 echo -e '\e[32m Install Node JS\e[0m'
 yum install nodejs -y &>>log
 echo -e '\e[32m Add roboshop user\e[0m'
