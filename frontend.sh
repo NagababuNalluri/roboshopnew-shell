@@ -1,6 +1,6 @@
 source common.sh
 
-print_head 'install nginx'
+print_head "install nginx"
 yum install nginx -y &>>${log}
 check_status
 print_head 'enable nginx'
