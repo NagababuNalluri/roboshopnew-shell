@@ -27,12 +27,13 @@ rm -rf /app/*
 check_status
 
 cd /app &>>log
-
 unzip /tmp/user.zip
 
   print_head ' NPM install'
+  cd /app
 npm install
 check_status
+
   print_head ' Copy user service'
 cp ${script_location}/files/user.service /etc/systemd/system/user.service
 check_status
@@ -52,7 +53,7 @@ check_status
 yum install mongodb-org-shell -y
 check_status
   print_head ' Load Schema'
-mongo --host mongodb-dev.devopshemasri.online </app/schema/user.js 
+mongo --host mongodb-dev.devopshemasri.online </app/schema/user.js
 check_status
 
 
