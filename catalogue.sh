@@ -29,6 +29,7 @@ cd /app &>>log
 unzip /tmp/catalogue.zip &>>log
 
   print_head ' NPM install'
+  cd /app
 npm install &>>log
 check_status
   print_head ' Copy catalogue service'
