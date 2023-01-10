@@ -18,7 +18,7 @@ mkdir -p /app &>>log
 check_status
 
   print_head ' Download user content'
-curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip &>>log
+curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip &>>log
 check_status
   print_head ' Remove default content in app directory'
 rm -rf /app/* &>>log
