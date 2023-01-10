@@ -44,7 +44,7 @@ check_status
 systemctl start user &>>log
 check_status
   print_head ' Coping Mongodb Repo'
-cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>log
+cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo &>>log
 check_status
   print_head ' Install Mongodb'
 yum install mongodb-org-shell -y &>>log
