@@ -1,23 +1,26 @@
-script_location=$(pwd)
-log=/tmp/roboshop.logs
-echo -e '\e[32m Configuring nodejs \e[0m'
+source common.sh
+  print_head ' Configuring nodejs '
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>log
 check_status
-echo -e '\e[32m Install Node JS\e[0m'
+  print_head ' Install Node JS'
 yum install nodejs -y &>>log
 check_status
-echo -e '\e[32m Add roboshop user\e[0m'
+  print_head ' Add roboshop user'
 id roboshop &>>log
+if [ $? -ne 0 ]
+then
+  useradd roboshop
+    fi
 check_status
 
-echo -e '\e[32m Creating app directory\e[0m'
+  print_head ' Creating app directory'
 mkdir -p /app &>>log
 check_status
 
-echo -e '\e[32m Download Catalogue content\e[0m'
+  print_head ' Download Catalogue content'
 curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>log
 check_status
-echo -e '\e[32m Remove default content in app directory\e[0m'
+  print_head ' Remove default content in app directory'
 rm -rf /app/* &>>log
 check_status
 
@@ -25,28 +28,28 @@ cd /app &>>log
 
 unzip /tmp/catalogue.zip &>>log
 
-echo -e '\e[32m NPM install\e[0m'
+  print_head ' NPM install'
 npm install &>>log
 check_status
-echo -e '\e[32m Copy catalogue service\e[0m'
+  print_head ' Copy catalogue service'
 cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service &>>log
 check_status
-echo -e '\e[32m Load catalogue service\e[0m'
+  print_head ' Load catalogue service'
 systemctl daemon-reload &>>log
 check_status
-echo -e '\e[32m Enable Catalogue\e[0m'
+  print_head ' Enable Catalogue'
 systemctl enable catalogue &>>log
 check_status
-echo -e '\e[32m Start Catalogue\e[0m'
+  print_head ' Start Catalogue'
 systemctl start catalogue &>>log
 check_status
-echo -e '\e[32m Coping Mongodb Repo\e[0m'
+  print_head ' Coping Mongodb Repo'
 cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>log
 check_status
-echo -e '\e[32m Install Mongodb\e[0m'
+  print_head ' Install Mongodb'
 yum install mongodb-org-shell -y &>>log
 check_status
-echo -e '\e[32m Load Schema\e[0m'
+  print_head ' Load Schema'
 mongo --host mongodb-dev.devopshemasri.online </app/schema/catalogue.js &>>log
 check_status
 
