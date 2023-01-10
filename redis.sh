@@ -4,7 +4,7 @@ yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$log
 check_status
 
 print_head 'Dnf enable for redis 6.2'
-dnf module enable redis:remi-6.2 -y
+dnf module enable redis:remi-6.2 -y &>>$log
 check_status
 
 print_head '  Installed redis  '
@@ -18,6 +18,6 @@ print_head '  Enable redis  '
 systemctl enable redis &>>$log
 check_status
 
-print_head '  Restarting Mongodb  '
-systemctl start mongod &>>$log
+print_head '  Restarting Redis  '
+systemctl start redis &>>$log
 check_status
