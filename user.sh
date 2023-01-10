@@ -50,7 +50,7 @@ check_status
 yum install mongodb-org-shell -y &>>log
 check_status
   print_head ' Load Schema'
-mongo --host mongodb-dev.devopshemasri.online </app/schema/catalogue.js &>>log
+mongo --host mongodb-dev.devopshemasri.online </app/schema/user.js &>>log
 check_status
 
 
