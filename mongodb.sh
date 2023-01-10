@@ -1,53 +1,20 @@
-script_location=$(pwd)
-
-log=/tmp/roboshop.logs
-
-echo -e '\e[32m Setting mongodb repo\e[0m'
+source common.sh
+print_head '  Setting mongodb repo  '
 cp "$script_location"/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>$log
-if [ $? -eq 0 ]
-then
-  echo -e '\e[35m Command Execution Success \e[0m'
-  else
-    echo -e '\e[31m Command Execution Failed \e[0m'
-  fi
+check_status
 
-echo -e '\e[32m Installed mongodb\e[0m'
+print_head '  Installed mongodb  '
 yum install mongodb-org -y &>>$log
-if [ $? -eq 0 ]
-then
-  echo -e '\e[35m Command Execution Success \e[0m'
-  else
-    echo -e '\e[31m Command Execution Failed \e[0m'
-  fi
-echo -e '\e[32m Enable Mongodb\e[0m'
+check_status
+print_head '  Enable Mongodb  '
 systemctl enable mongod &>>$log
-if [ $? -eq 0 ]
-then
-  echo -e '\e[35m Command Execution Success \e[0m'
-  else
-    echo -e '\e[31m Command Execution Failed \e[0m'
-  fi
-echo -e '\e[32m Start Mongodb\e[0m'
+check_status
+print_head '  Start Mongodb  '
 systemctl start mongod &>>$log
-if [ $? -eq 0 ]
-then
-  echo -e '\e[35m Command Execution Success \e[0m'
-  else
-    echo -e '\e[31m Command Execution Failed \e[0m'
-  fi
-echo -e '\e[32m Change listing address to 0.0.0.0\e[0m'
+check_status
+print_head '  Change listing address to 0.0.0.0  '
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$log
-if [ $? -eq 0 ]
-then
-  echo -e '\e[35m Command Execution Success \e[0m'
-  else
-    echo -e '\e[31m Command Execution Failed \e[0m'
-  fi
-echo -e '\e[32m restarting Mongodb\e[0m'
+check_status
+print_head '  restarting Mongodb  '
 systemctl restart mongod &>>$log
-if [ $? -eq 0 ]
-then
-  echo -e '\e[35m Command Execution Success \e[0m'
-  else
-    echo -e '\e[31m Command Execution Failed \e[0m'
-  fi
+check_status
